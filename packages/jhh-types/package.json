@@ -6,9 +6,16 @@
     "dev": "echo 'Add dev script here'",
     "build": "echo 'Add build script here'",
     "test": "echo 'Add test script here'",
-    "lint": "echo 'Add lint script here'"
+    "lint": "tsc",
+    "format": "prettier --write \"**/*.+(js|ts|json)\""
   },
   "dependencies": {
     "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.9.1",
+    "@typescript-eslint/parser": "^6.9.1",
+    "eslint": "^8.48.0",
+    "prettier": "^3.0.3"
   }
 }
