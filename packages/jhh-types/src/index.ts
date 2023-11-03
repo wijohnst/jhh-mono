@@ -1,1 +1,1 @@
-export namespace JhhTypes {}
+export * as JhhTypes from "./types";
