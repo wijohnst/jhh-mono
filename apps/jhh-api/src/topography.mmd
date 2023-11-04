@@ -1,0 +1,38 @@
+---
+title: High-Level Topography - JHH-API
+---
+flowchart LR
+
+  subgraph JHH-API
+    subgraph index
+      subgraph initDatabase
+        loadDatabase 
+      end
+      subgraph initServer
+        loadServer
+      end
+    end
+
+  subgraph providers
+    app --> initDatabase
+    app --> initServer
+  end
+
+  subgraph middlewares
+  end
+
+  subgraph controllers
+  end
+
+end
+  subgraph deps
+    express
+    mongoose
+  end
+
+
+
+
+
+
+         
