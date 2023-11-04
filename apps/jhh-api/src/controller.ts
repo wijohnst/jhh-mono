@@ -1,6 +1,8 @@
 import express from "express";
 
-const app = express();
+import { JhhController } from "../src/controllers/jhh-controller";
+
+const app = new JhhController(express).createApplication();
 
 const PORT = 8080;
 
