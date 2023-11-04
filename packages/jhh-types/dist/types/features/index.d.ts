@@ -1,2 +1,2 @@
-export * from "$types/features";
+export type Foo = {};
 //# sourceMappingURL=index.d.ts.map
