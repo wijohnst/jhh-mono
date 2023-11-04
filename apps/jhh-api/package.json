@@ -6,7 +6,7 @@
     "dev": "nodemon ./src/controller.ts",
     "compile": "tsc ./src/controller.ts -w",
     "build": "echo 'Add build script here'",
-    "test": "echo 'Add test script here'",
+    "test": "jest",
     "lint": "tsc --noEmit",
     "format": "prettier --write \"**/*.+(js|ts|json)\""
   },
@@ -16,8 +16,10 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.20",
+    "@types/jest": "^29.5.7",
     "jhh-types": "workspace:*",
     "nodemon": "^3.0.1",
+    "ts-jest": "^29.1.1",
     "ts-node": "^10.9.1"
   }
 }
