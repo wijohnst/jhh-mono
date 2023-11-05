@@ -1,6 +1,6 @@
 import express from "express";
 
-import { JhhController } from "../src/controllers/jhh-controller";
+import { JhhController } from "./controllers/jhh-controller";
 
 const app = new JhhController(express).createApplication();
 

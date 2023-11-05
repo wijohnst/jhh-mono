@@ -1,4 +1,4 @@
-import { IJhhController } from "src/models/controller-model";
+import { IJhhController } from "src/models/controllers/controller-model";
 import express from "express";
 import { JhhController } from "./jhh-controller";
 

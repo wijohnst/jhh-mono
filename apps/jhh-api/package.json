@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon ./src/controller.ts",
+    "dev": "nodemon ./src/index.ts",
     "compile": "tsc ./src/controller.ts -w",
-    "build": "echo 'Add build script here'",
+    "build": "tsc ./src/index.ts",
     "test": "jest",
     "lint": "tsc --noEmit",
     "format": "prettier --write \"**/*.+(js|ts|json)\""

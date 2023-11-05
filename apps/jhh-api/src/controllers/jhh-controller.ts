@@ -1,5 +1,5 @@
 import Express from "express";
-import { IJhhController } from "src/models/controller-model";
+import { IJhhController } from "src/models/controllers/controller-model";
 
 export class JhhController implements IJhhController {
   constructor(express: () => Express.Application) {
