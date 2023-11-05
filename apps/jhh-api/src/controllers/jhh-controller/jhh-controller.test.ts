@@ -1,7 +1,7 @@
 import express from "express";
 
 import { IJhhController } from "@models/controllers";
-import { JhhController } from "@controllers/jhh-controller";
+import { JhhController } from "./jhh-controller";
 
 describe("JhhController", () => {
   let sut: IJhhController;
