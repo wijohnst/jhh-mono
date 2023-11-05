@@ -20,7 +20,7 @@ jest.mock("express", () => {
   });
 });
 
-import { IJhhApp } from "src/models/providers";
+import { IJhhApp } from "@models/providers";
 import { JhhApp } from "./jhh-app";
 
 describe("JhhApp", () => {
