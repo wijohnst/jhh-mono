@@ -14,12 +14,20 @@ export class MongoDB implements IMongoDB {
   }
 
   public connectToDatabase = async () => {
-    try {
-      await mongoose.connect(this.mongoDBUri.toString()).then(() => {
-        this.logger.log("Connected to MongoDB");
-      });
-    } catch (error: unknown) {
-      console.error(error);
-    }
+    this.logger.log(
+      `Establishing connection to database... ${this.mongoDBUri}`
+    );
+
+    mongoose
+      .connect(this.mongoDBUri)
+      .then(() => this.logger.log("Connecting to mongoDB..."));
+
+    mongoose.connection.on("error", (err) => {
+      this.logger.log(err);
+    });
+
+    mongoose.connection.once("connected", () => {
+      this.logger.log("Connected to database");
+    });
   };
 }

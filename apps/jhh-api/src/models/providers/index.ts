@@ -24,5 +24,5 @@ export interface ILocals {
 }
 
 export interface IMongoDB {
-  connectToDatabase: () => Promise<void>;
+  connectToDatabase: () => void;
 }

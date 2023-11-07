@@ -1,6 +1,7 @@
 import { IMongoDB } from "@models/providers";
 import { MongoDB } from "./mongodb";
 import mongoose from "mongoose";
+import { Logger } from "../platform/logger";
 
 describe("MongoDB Provider", () => {
   let sut: IMongoDB;
@@ -16,13 +17,14 @@ describe("MongoDB Provider", () => {
   });
 
   describe("connectToDatabase", () => {
-    test("should connect to the database", async () => {
+    test("should connect to the database", () => {
       jest
         .spyOn(mongoose, "connect")
         .mockResolvedValue(new mongoose.Mongoose());
       sut = getSut();
 
-      await sut.connectToDatabase();
+      sut.connectToDatabase();
+      expect(mongoose.connect).toHaveBeenCalled();
     });
   });
 });
