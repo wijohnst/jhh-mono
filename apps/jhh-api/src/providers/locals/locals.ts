@@ -7,9 +7,12 @@ export class Locals implements ILocals {
   public config = () => {
     dotenvConfig({ path: path.join(__dirname, "../../../.env") });
     const PORT = process.env.PORT || configDefaults.PORT;
+    const MONGO_DB_URI =
+      process.env.MONGO_DB_URI || configDefaults.MONGO_DB_URI;
 
     return {
       PORT,
+      MONGO_DB_URI,
     };
   };
 }
