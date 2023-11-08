@@ -1,10 +1,11 @@
-import { IPetDAOFactory } from "@models/data/pets";
-
 import { PetDAOFactory } from "./dao-factory";
 import { MOCK_PET_DTO } from "../../models/modules/__mocks__/pets";
+import { IDAOFactory } from "@models/data";
+import { PetDTO } from "@models/modules/pets";
+import { PetDAO } from "@models/data/pets";
 
 describe("PetDAOFactory", () => {
-  let sut: IPetDAOFactory;
+  let sut: IDAOFactory<PetDTO, PetDAO>;
 
   const getSut = () => {
     return new PetDAOFactory();
@@ -20,7 +21,7 @@ describe("PetDAOFactory", () => {
     it("should return correct PetDAO", () => {
       sut = getSut();
 
-      expect(sut.createPetDAO(MOCK_PET_DTO)).toEqual({
+      expect(sut.createDAO(MOCK_PET_DTO)).toEqual({
         id: MOCK_PET_DTO.id,
         name: MOCK_PET_DTO.name,
         species: MOCK_PET_DTO.species,

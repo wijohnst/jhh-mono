@@ -4,6 +4,7 @@
 
 import { PetDTO } from "@models/modules/pets";
 import { Schema } from "mongoose";
+import { IDAOFactory } from ".";
 
 /**
  * PetDAO - Pet Data Access Object
@@ -38,10 +39,3 @@ export const PetDocumentSchema = new Schema<IPetDocument>({
   species: { type: String, required: true },
   iconId: { type: String, required: true, default: "default-pet-icon" },
 });
-
-/**
- * PetDAOFactory - Factory for creating PetDAOs
- */
-export interface IPetDAOFactory {
-  createPetDAO: (petDTO: PetDTO) => PetDAO;
-}
