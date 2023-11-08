@@ -1,4 +1,4 @@
-import { PetDTO } from "@models/domain/pets";
+import { PetDTO } from "@models/modules/pets";
 
 export interface IController {}
 

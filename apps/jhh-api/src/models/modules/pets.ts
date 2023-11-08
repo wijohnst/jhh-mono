@@ -12,7 +12,7 @@ export type PetDTO = PetDAO;
 /**
  * Species - Enumerated list of possible species
  */
-enum Species {
+export enum Species {
   DOG,
   CAT,
   OTHER,

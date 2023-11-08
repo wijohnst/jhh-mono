@@ -2,7 +2,7 @@
  * @module - Pet Data Layer Model
  */
 
-import { PetDTO } from "@models/domain/pets";
+import { PetDTO } from "@models/modules/pets";
 import { Schema } from "mongoose";
 
 /**
@@ -43,5 +43,5 @@ export const PetDocumentSchema = new Schema<IPetDocument>({
  * PetDAOFactory - Factory for creating PetDAOs
  */
 export interface IPetDAOFactory {
-  createPetDAO: (petDTO: PetDTO) => Promise<PetDAO>;
+  createPetDAO: (petDTO: PetDTO) => PetDAO;
 }
