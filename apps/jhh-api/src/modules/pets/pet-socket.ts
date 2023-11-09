@@ -1,5 +1,6 @@
 import { PetDAO } from "@models/data/pets";
-import { IPetSocket, Pet, PetDTO, Species } from "../../models/modules/pets";
+import { IPetSocket, PetDTO } from "../../models/modules/pets";
+import { Pet, Species } from "jhh-types";
 
 export class PetSocket implements IPetSocket {
   constructor() {}
@@ -22,11 +23,11 @@ export class PetSocket implements IPetSocket {
   convertSpeciesStringToSpecies = (species: string): Species => {
     switch (species.toUpperCase()) {
       case "DOG":
-        return Species.DOG;
+        return 0;
       case "CAT":
-        return Species.CAT;
+        return 1;
       default:
-        return Species.OTHER;
+        return 2;
     }
   };
 }
