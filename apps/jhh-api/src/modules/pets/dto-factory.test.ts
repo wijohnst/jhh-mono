@@ -2,13 +2,13 @@ import { PetDAO } from "@models/data/pets";
 import { IDTOFactory } from "@models/modules";
 import { PetDTO } from "@models/modules/pets";
 
-import { DTOFactory } from "./dto-factory";
+import { PetDTOFactory } from "./dto-factory";
 import { MOCK_PET_DAO } from "../../models/data/__mocks__/pets";
 
 describe("PetDTOFactory", () => {
   let sut: IDTOFactory<PetDAO, PetDTO>;
 
-  const getSut = () => new DTOFactory();
+  const getSut = () => new PetDTOFactory();
 
   it("should be defined", () => {
     sut = getSut();

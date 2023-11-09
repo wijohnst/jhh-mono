@@ -1,1 +1,1 @@
-export * as JhhTypes from "./types";
+export type { Pet } from "./types";

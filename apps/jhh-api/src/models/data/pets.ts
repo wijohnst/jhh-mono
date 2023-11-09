@@ -19,21 +19,14 @@ export type PetDAO = {
 /**
  * IPetDocument - Pet document interface for MongoDB
  */
-type IPetDocument = Omit<PetDAO, "id"> & {
+export type PetDocument = Omit<PetDAO, "id"> & {
   _id: Schema.Types.ObjectId;
 };
 
 /**
- * PetDocumentFactory - Factory for creating PetDocuments
- */
-export interface IPetDocumentFactory {
-  createPetDocument: (petDAO: PetDAO) => IPetDocument;
-}
-
-/**
  * PetDocumentSchema - Pet document schema for MongoDB
  */
-export const PetDocumentSchema = new Schema<IPetDocument>({
+export const PetDocumentSchema = new Schema<PetDocument>({
   _id: { type: Schema.Types.ObjectId, required: true },
   name: { type: String, required: true },
   species: { type: String, required: true },

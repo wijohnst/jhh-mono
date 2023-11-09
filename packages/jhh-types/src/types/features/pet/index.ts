@@ -1,29 +1,18 @@
-import { Schema, Types as MongooseTypes, model } from "mongoose";
-
-enum Species {
-  DOG = "DOG",
-  CAT = "CAT",
-  BIRD = "BIRD",
+/**
+ * Species - Enumerated list of possible species
+ */
+export enum Species {
+  DOG,
+  CAT,
+  OTHER,
 }
 
-interface IPet {
-  _id: MongooseTypes.ObjectId;
+/**
+ * Pet - Domain model for a Pet
+ */
+export type Pet = {
+  id: string;
   name: string;
   species: Species;
   iconId: string;
-}
-
-const petSchema = new Schema<IPet>({
-  _id: Schema.Types.ObjectId,
-  name: String,
-  species: {
-    type: String,
-    enum: Object.values(Species),
-  },
-  iconId: {
-    type: String,
-    default: "default-pet-icon",
-  },
-});
-
-export const Pet = model<IPet>("Pet", petSchema);
+};

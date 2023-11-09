@@ -2,31 +2,14 @@
  * @module - Pet Domain Layer Model
  */
 
+import { Pet } from "jhh-types";
+
 import { PetDAO } from "@models/data/pets";
 
 /**
  * PetDTO - Domain Transfer Object for a Pet
  */
-export type PetDTO = PetDAO;
-
-/**
- * Species - Enumerated list of possible species
- */
-export enum Species {
-  DOG,
-  CAT,
-  OTHER,
-}
-
-/**
- * Pet - Domain model for a Pet
- */
-export type Pet = {
-  id: string;
-  name: string;
-  species: Species;
-  iconId: string;
-};
+export type PetDTO = Pet;
 
 /**
  * PetSocket - Converts PetDAO or PetDTO to Pet
