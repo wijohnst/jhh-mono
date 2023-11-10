@@ -1,6 +1,6 @@
 import { PetData } from "jhh-types";
 
-import { IDAOFactory } from "@models/data";
+import { IDAOFactory } from "@models/data/pets";
 
 export class PetDAOFactory
   implements IDAOFactory<PetData.PetDTO, PetData.PetDAO>

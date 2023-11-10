@@ -3,7 +3,7 @@ import { PetData } from "jhh-types";
 import { IDTOFactory } from "@models/modules";
 import { PetDTOFactory } from "./dto-factory";
 
-import { MOCK_PET_DAO } from "../../models/data/__mocks__/pets";
+import { MOCK_PET_DAO } from "../../models/data/pets/__mocks__";
 
 describe("PetDTOFactory", () => {
   let sut: IDTOFactory<PetData.PetDAO, PetData.PetDTO>;

@@ -1,7 +1,6 @@
 import { PetData } from "jhh-types";
 
-import { IDocumentFactory } from "@models/data";
-import { PetDocument } from "@models/data/pets";
+import { IDocumentFactory, PetDocument } from "@models/data/pets";
 
 import mongoose from "mongoose";
 

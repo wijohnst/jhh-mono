@@ -1,10 +1,9 @@
 import { PetData } from "jhh-types";
 
-import { IDocumentFactory } from "@models/data";
-import { PetDocument } from "@models/data/pets";
+import { IDocumentFactory, PetDocument } from "@models/data/pets";
 
 import { PetDocumentFactory } from "./pet-document-factory";
-import { MOCK_PET_DAO } from "../../models/data/__mocks__/pets";
+import { MOCK_PET_DAO } from "../../models/data/pets/__mocks__";
 
 import mongoose from "mongoose";
 

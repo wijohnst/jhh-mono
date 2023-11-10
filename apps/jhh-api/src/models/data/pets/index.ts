@@ -1,9 +1,13 @@
-/**
- * @module - Pet Data Layer Model
- */
-
 import { Schema } from "mongoose";
 import { PetData } from "jhh-types";
+
+export interface IDAOFactory<DTOType, DAOType> {
+  createDAO: (dto: DTOType) => DAOType;
+}
+
+export interface IDocumentFactory<DAOType, DocumentType> {
+  createDocument: (dao: DAOType) => DocumentType;
+}
 
 /**
  * IPetDocument - Pet document interface for MongoDB

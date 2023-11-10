@@ -8,7 +8,6 @@
     "baseUrl": "src",
     "paths": {
       "@models/*": ["models/*"],
-      "@models/modules/*": ["models/modules/*"],
       "@controllers/*": ["controllers/*"],
       "@providers/*": ["providers/*"],
       "@modules/*": ["modules/*"]
