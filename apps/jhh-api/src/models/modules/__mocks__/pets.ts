@@ -1,6 +1,6 @@
-import { PetDTO } from "../pets";
+import { PetData } from "jhh-types";
 
-export const MOCK_PET_DTO: PetDTO = {
+export const MOCK_PET_DTO: PetData.PetDTO = {
   id: "MOCK_ID",
   name: "MOCK_PET_NAME",
   species: "MOCK_SPECIES",

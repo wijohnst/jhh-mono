@@ -2,24 +2,13 @@
  * @module - Pet Data Layer Model
  */
 
-import { PetDTO } from "@models/modules/pets";
 import { Schema } from "mongoose";
-import { IDAOFactory } from ".";
-
-/**
- * PetDAO - Pet Data Access Object
- */
-export type PetDAO = {
-  id: string;
-  name: string;
-  species: string;
-  iconId: string;
-};
+import { PetData } from "jhh-types";
 
 /**
  * IPetDocument - Pet document interface for MongoDB
  */
-export type PetDocument = Omit<PetDAO, "id"> & {
+export type PetDocument = Omit<PetData.PetDAO, "id"> & {
   _id: Schema.Types.ObjectId;
 };
 

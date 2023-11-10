@@ -1,12 +1,12 @@
-import { PetDAO } from "@models/data/pets";
-import { IDTOFactory } from "@models/modules";
-import { PetDTO } from "@models/modules/pets";
+import { PetData } from "jhh-types";
 
+import { IDTOFactory } from "@models/modules";
 import { PetDTOFactory } from "./dto-factory";
+
 import { MOCK_PET_DAO } from "../../models/data/__mocks__/pets";
 
 describe("PetDTOFactory", () => {
-  let sut: IDTOFactory<PetDAO, PetDTO>;
+  let sut: IDTOFactory<PetData.PetDAO, PetData.PetDTO>;
 
   const getSut = () => new PetDTOFactory();
 

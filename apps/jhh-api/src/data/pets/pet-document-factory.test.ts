@@ -1,5 +1,7 @@
+import { PetData } from "jhh-types";
+
 import { IDocumentFactory } from "@models/data";
-import { PetDocument, PetDAO } from "@models/data/pets";
+import { PetDocument } from "@models/data/pets";
 
 import { PetDocumentFactory } from "./pet-document-factory";
 import { MOCK_PET_DAO } from "../../models/data/__mocks__/pets";
@@ -7,7 +9,7 @@ import { MOCK_PET_DAO } from "../../models/data/__mocks__/pets";
 import mongoose from "mongoose";
 
 describe("PetDocumentFactory", () => {
-  let sut: IDocumentFactory<PetDAO, PetDocument>;
+  let sut: IDocumentFactory<PetData.PetDAO, PetDocument>;
 
   const getSut = () => new PetDocumentFactory();
 

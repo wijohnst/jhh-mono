@@ -1,5 +1,6 @@
-import { PetDAO } from "@models/data/pets";
-import { IPetSocket, PetDTO } from "../../models/modules/pets";
+import { PetData } from "jhh-types";
+
+import { IPetSocket } from "../../models/modules/pets";
 import { Pet, Species } from "jhh-types";
 
 export class PetSocket implements IPetSocket {
@@ -11,7 +12,7 @@ export class PetSocket implements IPetSocket {
    * @param{PetDAO} target - PetDAO to convert
    * @returns{Pet} - Converted Pet
    */
-  convertToPet = (target: PetDAO | PetDTO): Pet => {
+  convertToPet = (target: PetData.PetDAO | PetData.etDTO): Pet => {
     return {
       id: target.id,
       name: target.name,

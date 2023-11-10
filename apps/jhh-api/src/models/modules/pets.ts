@@ -2,32 +2,25 @@
  * @module - Pet Domain Layer Model
  */
 
-import { Pet } from "jhh-types";
-
-import { PetDAO } from "@models/data/pets";
-
-/**
- * PetDTO - Domain Transfer Object for a Pet
- */
-export type PetDTO = Pet;
+import { Pet, PetData } from "jhh-types";
 
 /**
  * PetSocket - Converts PetDAO or PetDTO to Pet
  */
 export interface IPetSocket {
-  convertToPet: (target: PetDAO | PetDTO) => Pet;
+  convertToPet: (target: PetData.PetDAO | PetData.PetDTO) => Pet;
 }
 
 /**
  * PetDTOFactory - Factory for creating PetDTOs
  */
 export interface IPetDTOFactory {
-  createPetDTOFromPet: (pet: Pet) => PetDTO;
+  createPetDTOFromPet: (pet: Pet) => PetData.PetDTO;
 }
 
 /**
  * IPetsController - Controller for /api/pets/*
  */
 export interface IPetsController {
-  getAllPets: () => Promise<PetDTO[]>;
+  getAllPets: () => Promise<PetData.PetDTO[]>;
 }

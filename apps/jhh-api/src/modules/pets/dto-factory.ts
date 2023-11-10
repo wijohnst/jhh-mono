@@ -1,9 +1,11 @@
-import { PetDAO } from "@models/data/pets";
-import { IDTOFactory } from "@models/modules";
-import { PetDTO } from "@models/modules/pets";
+import { PetData } from "jhh-types";
 
-export class PetDTOFactory implements IDTOFactory<PetDAO, PetDTO> {
-  createDTO = (dao: PetDAO): PetDTO => {
+import { IDTOFactory } from "@models/modules";
+
+export class PetDTOFactory
+  implements IDTOFactory<PetData.PetDAO, PetData.PetDTO>
+{
+  createDTO = (dao: PetData.PetDAO): PetData.PetDTO => {
     return {
       ...dao,
     };

@@ -1,12 +1,13 @@
-import { IDAOFactory } from "@models/data";
-import { MOCK_PET_DAO } from "../../models/data/__mocks__/pets";
-import { PetDAO } from "@models/data/pets";
-import { PetDTO } from "@models/modules/pets";
+import { PetData } from "jhh-types";
 
-export class PetDAOFactory implements IDAOFactory<PetDTO, PetDAO> {
+import { IDAOFactory } from "@models/data";
+
+export class PetDAOFactory
+  implements IDAOFactory<PetData.PetDTO, PetData.PetDAO>
+{
   constructor() {}
 
-  createDAO = (petDTO: PetDAO): PetDAO => {
+  createDAO = (petDTO: PetData.PetDAO): PetData.DAO => {
     return {
       ...petDTO,
     };

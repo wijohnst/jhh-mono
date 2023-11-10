@@ -1,1 +1,1 @@
-export type { Pet, Species } from "./types";
+export type { Pet, Species, PetData } from "./types";
