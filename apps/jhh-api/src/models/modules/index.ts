@@ -1,5 +1,3 @@
-export * as pets from "./pets";
-
 /**
  * @description - Returns a DTO from a DAO
  */

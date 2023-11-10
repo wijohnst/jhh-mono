@@ -1,6 +1,6 @@
 import { PetData } from "jhh-types";
 
-import { IPetSocket } from "../../models/modules/pets";
+import { IPetSocket } from "../../../models/modules/pets";
 import { Pet, Species } from "jhh-types";
 
 export class PetSocket implements IPetSocket {

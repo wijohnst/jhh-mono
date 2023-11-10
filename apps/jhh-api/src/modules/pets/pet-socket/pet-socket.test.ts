@@ -1,7 +1,7 @@
 import { IPetSocket } from "@models/modules/pets";
 
 import { PetSocket } from "./pet-socket";
-import { MOCK_PET_DTO } from "../../models/modules/__mocks__/pets";
+import { MOCK_PET_DTO } from "../../../models/modules/pets/__mocks__";
 
 describe("PetSocket", () => {
   let sut: IPetSocket;
