@@ -1,7 +1,12 @@
 import { PetData } from "jhh-types";
 
 import { IController } from "..";
+import { NextFunction, Request, Response } from "express";
 
 export interface IPetsController extends IController {
-  getAllPets: () => Promise<PetData.PetDTO[]>;
+  getAllPets: (
+    req: Request<{}>,
+    res: Response,
+    next?: NextFunction
+  ) => Promise<Response<PetData.PetDTO[]>>;
 }

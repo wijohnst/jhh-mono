@@ -17,10 +17,3 @@ export interface IPetSocket {
 export interface IPetDTOFactory {
   createPetDTOFromPet: (pet: Pet) => PetData.PetDTO;
 }
-
-/**
- * IPetsController - Controller for /api/pets/*
- */
-export interface IPetsController {
-  getAllPets: () => Promise<PetData.PetDTO[]>;
-}
