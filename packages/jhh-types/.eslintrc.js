@@ -9,6 +9,6 @@ module.exports = {
     sourceType: "module",
   },
   importResolver: {
-        typescript: {},
-  }
+    typescript: {},
+  },
 };

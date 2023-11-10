@@ -39,7 +39,7 @@ describe("Locals", () => {
         const target = config[key as keyof typeof config];
 
         expect(target).toEqual(defaultValue);
-      }
+      },
     );
   });
 });

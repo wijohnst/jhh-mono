@@ -1,1 +1,1 @@
-export * as JhhTypes from "./types";
+export type { Pet, Species, PetData } from "./types";
