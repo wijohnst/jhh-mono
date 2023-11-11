@@ -7,6 +7,6 @@ export interface IPetsController extends IController {
   getAllPets: (
     req: Request<{}>,
     res: Response,
-    next?: NextFunction
+    next?: NextFunction,
   ) => Promise<Response<PetData.PetDTO[]>>;
 }
