@@ -1,3 +1,4 @@
+import express from "express";
 import { config as dotenvConfig } from "dotenv";
 import * as path from "path";
 
@@ -14,5 +15,11 @@ export class Locals implements ILocals {
       PORT,
       MONGO_DB_URI,
     };
+  };
+
+  public init = (_express: express.Application) => {
+    const config = this.config();
+
+    _express.locals.app = config;
   };
 }
