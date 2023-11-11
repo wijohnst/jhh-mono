@@ -7,11 +7,11 @@
     "outDir": "dist",
     "baseUrl": "src",
     "paths": {
-      "@data/*": ["data/*"],
       "@controllers/*": ["controllers/*"],
+      "@data/*": ["data/*"],
       "@models/*": ["models/*"],
-      "@providers/*": ["providers/*"],
       "@modules/*": ["modules/*"],
+      "@providers/*": ["providers/*"],
       "@routes/*": ["routes/*"]
     }
   }
