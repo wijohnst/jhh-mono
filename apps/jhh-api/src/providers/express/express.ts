@@ -9,15 +9,21 @@ export class Express implements IExpress {
   private logger: Logger;
   private locals: Locals;
 
-  constructor(express: express.Application, logger: Logger, locals: Locals) {
-    this.express = express;
+  constructor(_express: express.Application, logger: Logger, locals: Locals) {
+    this.express = _express;
 
     this.locals = locals;
     this.logger = logger;
   }
 
+  private mountConfig = () => {
+    this.locals.init(this.express);
+  };
+
   init() {
     const port = this.locals.config().PORT;
+
+    this.mountConfig();
 
     this.express
       .listen(port, () => {

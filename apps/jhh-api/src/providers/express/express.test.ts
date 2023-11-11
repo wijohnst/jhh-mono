@@ -27,7 +27,7 @@ jest.mock("../platform/logger", () => ({
 
 jest.mock("../locals/Locals", () => ({
   Locals: jest.fn().mockImplementation(() => {
-    return { config: jest.fn(() => ({ PORT: 2621 })) };
+    return { config: jest.fn(() => ({ PORT: 2621 })), init: jest.fn() };
   }),
 }));
 
@@ -63,6 +63,19 @@ describe("Express app provider", () => {
       sut.init();
 
       expect(_express.listen).toHaveBeenCalled();
+    });
+  });
+
+  describe("mountConfig", () => {
+    it("✅ should call `locals.init`", () => {
+      let _express = express();
+      let locals = new Locals();
+
+      sut = new Express(_express, new Logger(), locals);
+
+      sut.init();
+
+      expect(locals.init).toHaveBeenCalled();
     });
   });
 });

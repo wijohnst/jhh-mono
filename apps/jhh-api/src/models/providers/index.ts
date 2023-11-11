@@ -22,6 +22,7 @@ export const configDefaults: ConfigProperties = {
 };
 export interface ILocals {
   config: () => ConfigProperties;
+  init: (_express: express.Application) => void;
 }
 
 export interface IMongoDB {
