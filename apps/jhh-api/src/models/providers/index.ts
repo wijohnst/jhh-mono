@@ -1,4 +1,5 @@
 import express from "express";
+import { LoggerOptions } from "./platform/logger";
 
 export interface IJhhApp {
   express: express.Application;
@@ -7,7 +8,7 @@ export interface IJhhApp {
 }
 
 export interface ILogger {
-  log: (message: string, debug?: boolean) => void;
+  log: (message: string, options?: LoggerOptions) => void;
 }
 
 type ConfigProperties = {
@@ -25,4 +26,12 @@ export interface ILocals {
 
 export interface IMongoDB {
   connectToDatabase: () => void;
+}
+
+/**
+ * @description Provides `express.Application` and privately mounts environment configuration, middlewares, and routes
+ */
+export interface IExpress {
+  /** Start the Express server */
+  init: () => void;
 }
