@@ -36,3 +36,7 @@ export interface IExpress {
   /** Start the Express server */
   init: () => void;
 }
+
+export interface IRoutes {
+  mountAPIRoutes: (express: express.Application) => void;
+}

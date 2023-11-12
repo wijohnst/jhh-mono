@@ -1,29 +1,42 @@
-import express from "express";
+import { Application as ExpressApplication } from "express";
 
 import { IExpress } from "@models/providers";
 import { Locals } from "../locals";
 import { Logger } from "../platform/logger";
+import { Routes } from "../routes/routes";
 
 export class Express implements IExpress {
-  public express: express.Application;
+  public express: ExpressApplication;
   private logger: Logger;
   private locals: Locals;
+  private routes: Routes;
 
-  constructor(_express: express.Application, logger: Logger, locals: Locals) {
+  constructor(
+    _express: ExpressApplication,
+    logger: Logger,
+    locals: Locals,
+    routes: Routes
+  ) {
     this.express = _express;
 
     this.locals = locals;
     this.logger = logger;
+    this.routes = routes;
   }
 
   private mountConfig = () => {
     this.locals.init(this.express);
   };
 
+  private mountRoutes = () => {
+    this.express = this.routes.mountAPIRoutes(this.express);
+  };
+
   init() {
     const port = this.locals.config().PORT;
 
     this.mountConfig();
+    this.mountRoutes();
 
     this.express
       .listen(port, () => {
