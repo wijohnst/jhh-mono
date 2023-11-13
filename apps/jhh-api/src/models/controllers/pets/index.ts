@@ -6,6 +6,6 @@ export interface IPetsController extends IController {
   getAllPets: (
     req: Request<any>,
     res: Response<any>,
-    next?: NextFunction
+    next?: NextFunction,
   ) => any;
 }

@@ -18,7 +18,7 @@ export class Routes implements IRoutes {
   public mountAPIRoutes = (_express: ExpressApplication) => {
     return _express.use(
       "/api",
-      new APIRoutes(this.router, new Logger()).init()
+      new APIRoutes(this.router, new Logger()).init(),
     );
   };
 }
