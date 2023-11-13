@@ -6,18 +6,17 @@ import { Logger } from "../platform/logger";
 import { Locals } from "../locals";
 import { Routes } from "../routes";
 
-const mockExpressApplication = {
-  listen: jest.fn().mockImplementation(() => ({
-    on: jest.fn().mockImplementation((event: string, cb: () => void) => {
-      return cb();
-    }),
-  })),
-};
-
-const mockRouter = jest.fn();
+// const mockExpressApplication = {
+//   listen: jest.fn().mockImplementation(() => ({
+//     on: jest.fn().mockImplementation((event: string, cb: () => void) => {
+//       return cb();
+//     }),
+//   })),
+// };
 
 // jest.mock("express", () => {
 //   return jest.fn().mockImplementation(() => ({
+//     Router: jest.fn(),
 //     listen: jest.fn().mockImplementation(() => {
 //       return {
 //         on: jest.fn().mockImplementation((event: string, cb: () => void) => {
@@ -27,12 +26,6 @@ const mockRouter = jest.fn();
 //     }),
 //   }));
 // });
-
-jest.mock("express", () => {
-  return {
-    Router: jest.fn().mockImplementation(() => mockRouter),
-  };
-});
 
 jest.mock("../platform/logger", () => ({
   Logger: jest.fn().mockImplementation(() => {
@@ -69,12 +62,6 @@ describe("Express app provider", () => {
     expect(sut).toBeDefined();
   });
 
-  it("✅ should instantiate an express.Application", () => {
-    sut = getSut();
-
-    expect(express).toHaveBeenCalled();
-  });
-
   describe("init", () => {
     it("✅ should be defined", () => {
       sut = getSut();
@@ -85,6 +72,9 @@ describe("Express app provider", () => {
     it("✅ server should listen", () => {
       let _express = express();
       let logger = new Logger();
+
+      const listenSpy = jest.spyOn(_express, "listen");
+
       sut = new Express(
         _express,
         logger,
@@ -94,7 +84,7 @@ describe("Express app provider", () => {
 
       sut.init();
 
-      expect(_express.listen).toHaveBeenCalled();
+      expect(listenSpy).toHaveBeenCalled();
     });
   });
 
@@ -102,13 +92,10 @@ describe("Express app provider", () => {
     it("✅ should call `locals.init`", () => {
       let _express = express();
       let locals = new Locals();
+      let logger = new Logger();
+      let routes = new Routes(express.Router());
 
-      sut = new Express(
-        _express,
-        new Logger(),
-        locals,
-        new Routes(express.Router())
-      );
+      sut = new Express(_express, logger, locals, routes);
 
       sut.init();
 
@@ -116,5 +103,18 @@ describe("Express app provider", () => {
     });
   });
 
-  describe("mountRoutes", () => {});
+  describe("mountRoutes", () => {
+    it("✅ should mount API routes", () => {
+      let _express = express();
+      let locals = new Locals();
+      let logger = new Logger();
+      let routes = new Routes(express.Router());
+
+      sut = new Express(_express, logger, locals, routes);
+
+      sut.init();
+
+      expect(routes.mountAPIRoutes).toHaveBeenCalled();
+    });
+  });
 });

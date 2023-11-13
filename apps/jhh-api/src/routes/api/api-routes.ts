@@ -1,5 +1,4 @@
-import { Request, Response, Router } from "express";
-import { PetData } from "jhh-types";
+import { Router } from "express";
 
 import { IRoutes, RouteConfig } from "@models/routes";
 import { Logger } from "@providers/platform/logger";
