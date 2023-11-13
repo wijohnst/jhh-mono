@@ -1,24 +1,9 @@
-jest.mock("../platform/logger/Logger", () => {
-  return jest.fn().mockImplementation(() => {
-    return { log: jest.fn() };
-  });
-});
+import express from "express";
 
-jest.mock("express", () => {
-  return jest.fn().mockImplementation(() => {
-    return {
-      listen: jest.fn().mockImplementation(() => {
-        return {
-          on: jest
-            .fn()
-            .mockImplementation((event: string, cb: (error: Error) => void) => {
-              return cb(new Error("test error"));
-            }),
-        };
-      }),
-    };
-  });
-});
+import { Express } from "../express";
+import { Logger } from "../platform/logger";
+import { Locals } from "../locals";
+import { Routes } from "../routes";
 
 import { IJhhApp } from "@models/providers";
 import { JhhApp } from "./jhh-app";
@@ -27,7 +12,14 @@ describe("JhhApp", () => {
   let sut: IJhhApp;
 
   const getSut = () => {
-    return new JhhApp();
+    return new JhhApp(
+      new Express(
+        express(),
+        new Logger(),
+        new Locals(),
+        new Routes(express.Router()),
+      ),
+    );
   };
 
   test("✅ should be defined", () => {
@@ -43,12 +35,21 @@ describe("JhhApp", () => {
       expect(sut.initServer).toBeDefined();
     });
 
-    test("✅ should initialize the server when called", () => {
-      sut = getSut();
+    test("✅ should initialize the server when called", async () => {
+      const expressProvider = new Express(
+        express(),
+        new Logger(),
+        new Locals(),
+        new Routes(express.Router()),
+      );
 
-      sut.initServer();
+      sut = new JhhApp(expressProvider);
 
-      expect(sut.express.listen).toHaveBeenCalled();
+      const expressInitSpy = jest.spyOn(expressProvider, "init");
+
+      await sut.initServer();
+
+      expect(expressInitSpy).toHaveBeenCalled();
     });
   });
 });

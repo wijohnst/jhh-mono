@@ -2,8 +2,7 @@ import express from "express";
 import { LoggerOptions } from "./platform/logger";
 
 export interface IJhhApp {
-  express: express.Application;
-  logger: ILogger;
+  express: IExpress;
   initServer: () => any;
 }
 
