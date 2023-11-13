@@ -4,7 +4,7 @@
   "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {
     "target": "ES2022",
-    "outDir": "dist",
+    "outDir": "./dist",
     "baseUrl": "src",
     "paths": {
       "@controllers/*": ["controllers/*"],
