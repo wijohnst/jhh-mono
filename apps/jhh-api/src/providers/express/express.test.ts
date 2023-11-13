@@ -53,7 +53,7 @@ describe("Express app provider", () => {
       express(),
       new Logger(),
       new Locals(),
-      new Routes(express.Router())
+      new Routes(express.Router()),
     );
 
   it("✅ should be defined", () => {
@@ -79,7 +79,7 @@ describe("Express app provider", () => {
         _express,
         logger,
         new Locals(),
-        new Routes(express.Router())
+        new Routes(express.Router()),
       );
 
       sut.init();

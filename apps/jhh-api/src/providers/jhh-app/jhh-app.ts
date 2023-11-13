@@ -1,36 +1,18 @@
 import express from "express";
-import { IJhhApp, ILocals } from "@models/providers";
+import { IExpress, IJhhApp, ILocals } from "@models/providers";
 
 import { Logger } from "../platform/logger";
 import { Locals } from "../locals";
+import { Express } from "../express";
+import { Routes } from "../routes";
 export class JhhApp implements IJhhApp {
-  express: express.Application;
-  logger: Logger;
-  locals: ILocals;
-  PORT: string;
+  express: IExpress;
 
-  constructor() {
-    this.express = express();
-    this.logger = new Logger();
-    this.locals = new Locals();
-    this.PORT = this.locals.config().PORT;
+  constructor(_express: IExpress) {
+    this.express = _express;
   }
 
   public initServer = () => {
-    this.express
-      .listen(this.PORT, () => {
-        return this.logSuccess();
-      })
-      .on("error", (err: Error) => {
-        return this.logError(err);
-      });
-  };
-
-  private logSuccess = () => {
-    this.logger.log(`Server running on port ${this.PORT}`);
-  };
-
-  private logError = (err: Error) => {
-    this.logger.log(err.message);
+    this.express.init();
   };
 }

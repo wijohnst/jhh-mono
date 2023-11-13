@@ -15,7 +15,7 @@ export class Express implements IExpress {
     _express: ExpressApplication,
     logger: Logger,
     locals: Locals,
-    routes: Routes
+    routes: Routes,
   ) {
     this.express = _express;
 
@@ -37,14 +37,14 @@ export class Express implements IExpress {
 
     this.logger.log("Mounting local configuration...");
     this.mountConfig();
+
     this.logger.log("Mounting routes...");
     this.mountRoutes();
+
     this.logger.log("Starting server...");
     this.express
       .listen(port, () => {
-        return this.logger.log(`Server running on port ${port}`, {
-          isDebug: true,
-        });
+        return this.logger.log(`Server running on port ${port}`);
       })
       .on("error", (err) => {
         return this.logger.log(`Error starting server: ${err}`);
