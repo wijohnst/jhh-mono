@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "nodemon ./src/index.ts",
     "compile": "tsc ./src/controller.ts -w",
-    "build": "tsc ./src/index.ts",
+    "build": "tsc" ,
     "test": "jest",
     "test:watch": "jest --watch --verbose=true",
     "lint": "tsc --noEmit",

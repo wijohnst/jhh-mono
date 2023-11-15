@@ -2,7 +2,7 @@ import { IPetsController } from "@models/controllers/pets";
 
 import { PetsController } from "./pets-controller";
 
-import { MOCK_PET_DTO } from "../../models/modules/pets/__mocks__";
+import { MOCK_PET_DTO } from "../../models/modules/pets/domain_mocks";
 import { Request, Response } from "express";
 
 describe("Pets Controller", () => {

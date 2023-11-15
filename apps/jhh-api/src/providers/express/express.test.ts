@@ -6,27 +6,6 @@ import { Logger } from "../platform/logger";
 import { Locals } from "../locals";
 import { Routes } from "../routes";
 
-// const mockExpressApplication = {
-//   listen: jest.fn().mockImplementation(() => ({
-//     on: jest.fn().mockImplementation((event: string, cb: () => void) => {
-//       return cb();
-//     }),
-//   })),
-// };
-
-// jest.mock("express", () => {
-//   return jest.fn().mockImplementation(() => ({
-//     Router: jest.fn(),
-//     listen: jest.fn().mockImplementation(() => {
-//       return {
-//         on: jest.fn().mockImplementation((event: string, cb: () => void) => {
-//           return cb();
-//         }),
-//       };
-//     }),
-//   }));
-// });
-
 jest.mock("../platform/logger", () => ({
   Logger: jest.fn().mockImplementation(() => {
     return { log: jest.fn() };
@@ -53,7 +32,7 @@ describe("Express app provider", () => {
       express(),
       new Logger(),
       new Locals(),
-      new Routes(express.Router()),
+      new Routes(express.Router())
     );
 
   it("✅ should be defined", () => {
@@ -79,7 +58,7 @@ describe("Express app provider", () => {
         _express,
         logger,
         new Locals(),
-        new Routes(express.Router()),
+        new Routes(express.Router())
       );
 
       sut.init();
