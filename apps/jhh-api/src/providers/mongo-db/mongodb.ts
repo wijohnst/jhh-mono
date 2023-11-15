@@ -14,9 +14,7 @@ export class MongoDB implements IMongoDB {
   }
 
   public connectToDatabase = async () => {
-    this.logger.log(
-      `Establishing connection to database... ${this.mongoDBUri}`,
-    );
+    this.logger.log(`Establishing connection to database...`);
 
     mongoose
       .connect(this.mongoDBUri)

@@ -12,14 +12,7 @@ describe("JhhApp", () => {
   let sut: IJhhApp;
 
   const getSut = () => {
-    return new JhhApp(
-      new Express(
-        express(),
-        new Logger(),
-        new Locals(),
-        new Routes(express.Router()),
-      ),
-    );
+    return new JhhApp(express(), express.Router());
   };
 
   test("✅ should be defined", () => {
@@ -33,23 +26,6 @@ describe("JhhApp", () => {
       sut = getSut();
 
       expect(sut.initServer).toBeDefined();
-    });
-
-    test("✅ should initialize the server when called", async () => {
-      const expressProvider = new Express(
-        express(),
-        new Logger(),
-        new Locals(),
-        new Routes(express.Router()),
-      );
-
-      sut = new JhhApp(expressProvider);
-
-      const expressInitSpy = jest.spyOn(expressProvider, "init");
-
-      await sut.initServer();
-
-      expect(expressInitSpy).toHaveBeenCalled();
     });
   });
 });

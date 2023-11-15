@@ -1,6 +1,6 @@
 import { PetData } from "jhh-types";
 import { PetDAOFactory } from "./dao-factory";
-import { MOCK_PET_DTO } from "../../../models/modules/pets/__mocks__";
+import { MOCK_PET_DTO } from "../../../models/modules/pets/domain_mocks";
 
 import { IDAOFactory } from "@models/data/pets";
 

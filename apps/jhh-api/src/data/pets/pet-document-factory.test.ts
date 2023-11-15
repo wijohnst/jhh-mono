@@ -3,7 +3,7 @@ import { PetData } from "jhh-types";
 import { IDocumentFactory, PetDocument } from "@models/data/pets";
 
 import { PetDocumentFactory } from "./pet-document-factory";
-import { MOCK_PET_DAO } from "../../models/data/pets/__mocks__";
+import { MOCK_PET_DAO } from "../../models/data/pets/domain_mocks";
 
 import mongoose from "mongoose";
 

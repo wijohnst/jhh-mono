@@ -15,10 +15,9 @@ export class Express implements IExpress {
     _express: ExpressApplication,
     logger: Logger,
     locals: Locals,
-    routes: Routes,
+    routes: Routes
   ) {
     this.express = _express;
-
     this.locals = locals;
     this.logger = logger;
     this.routes = routes;
@@ -34,13 +33,10 @@ export class Express implements IExpress {
 
   init() {
     const port = this.locals.config().PORT;
-
     this.logger.log("Mounting local configuration...");
     this.mountConfig();
-
     this.logger.log("Mounting routes...");
     this.mountRoutes();
-
     this.logger.log("Starting server...");
     this.express
       .listen(port, () => {

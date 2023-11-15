@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 
-import { IPetsController } from "@models/controllers/pets";
+import { IPetsController } from "../../models/controllers/pets";
 
-import { MOCK_PET_DTO } from "../../models/modules/pets/__mocks__";
+import { MOCK_PET_DTO } from "../../models/modules/pets/domain_mocks";
 
 import { MethodsEnum } from "../../models/routes";
 
