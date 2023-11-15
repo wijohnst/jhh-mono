@@ -2,7 +2,7 @@ import {
   Application as ExpressApplication,
   Router as ExpressRouter,
 } from "express";
-import { IExpress, IJhhApp, ILocals } from "@models/providers";
+import { IExpress, IJhhApp } from "@models/providers";
 
 import { Logger } from "../platform/logger";
 import { Locals } from "../locals";
