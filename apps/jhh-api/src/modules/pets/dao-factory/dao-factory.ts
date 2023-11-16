@@ -7,7 +7,7 @@ export class PetDAOFactory
 {
   constructor() {}
 
-  createDAO = (petDTO: PetData.PetDAO): PetData.DAO => {
+  createDAO = (petDTO: PetData.PetDTO): PetData.DAO => {
     return {
       ...petDTO,
     };

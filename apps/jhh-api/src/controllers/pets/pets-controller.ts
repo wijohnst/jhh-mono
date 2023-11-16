@@ -2,15 +2,28 @@ import { Request, Response } from "express";
 
 import { IPetsController } from "../../models/controllers/pets";
 
-import { MOCK_PET_DTO } from "../../models/modules/pets/domain_mocks";
-
 import { MethodsEnum } from "../../models/routes";
+
+import { PetModel } from "../../models/data/pets";
 
 export class PetsController implements IPetsController {
   constructor() {}
 
-  getAllPets = (req: Request, res: Response) => {
-    return res.status(200).json([MOCK_PET_DTO]);
+  getAllPets = async (req: Request, res: Response) => {
+    try {
+      const pets = await PetModel.find();
+      res.status(200).json({
+        status: 200,
+        message: `Successfully retrieved ${pets.length} pets`,
+        data: pets,
+      });
+    } catch (error) {
+      res.status(500).json({
+        status: 500,
+        message: "Internal server error",
+        data: error,
+      });
+    }
   };
 
   getRouteConfigs = () => {

@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import { Schema, model } from "mongoose";
 import { PetData } from "jhh-types";
 
 export interface IDAOFactory<DTOType, DAOType> {
@@ -25,3 +25,5 @@ export const PetDocumentSchema = new Schema<PetDocument>({
   species: { type: String, required: true },
   iconId: { type: String, required: true, default: "default-pet-icon" },
 });
+
+export const PetModel = model<PetDocument>("Pet", PetDocumentSchema);
